@@ -1,14 +1,26 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import ClassComp from './src/screens/ClassComp';
-import FunctionalComp from './src/screens/FunctionalComp';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import Home from './src/screens/Home';
+import Setting from './src/screens/Setting';
 
+export type RootStackParamsList = {
+  Home: undefined;
+  Setting: {
+    name: string;
+    email: string;
+  };
+};
+const Stack = createStackNavigator<RootStackParamsList>();
 const App = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ClassComp name={'Hussain'} email={'hussain@gmail.com'} age={20} />
-      <FunctionalComp name={'Hussain'} email={'hussain@gmail.com'} age={20} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Setting" component={Setting} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
