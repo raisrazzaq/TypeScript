@@ -4,9 +4,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from './src/screens/Home';
 import Setting from './src/screens/Setting';
+import Products from './src/screens/Products';
 
 export type RootStackParamsList = {
+  Products: undefined;
   Home: undefined;
+
   Setting: {
     name: string;
     email: string;
@@ -17,6 +20,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Products" component={Products} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Setting" component={Setting} />
       </Stack.Navigator>
