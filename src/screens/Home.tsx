@@ -3,6 +3,8 @@ import React, {useReducer, useState} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../App';
 import {act} from 'react-test-renderer';
+import Comp from '../components/Comp';
+import {StyleProvider} from './StyleContext';
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamsList, 'Home'>;
@@ -29,16 +31,19 @@ const reducer = (state: MyState, action: Action): MyState => {
 const Home = ({navigation}: HomeScreenProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{color: 'black'}}>{state.count}</Text>
-      <Text
-        style={{padding: 10, borderWidth: 1, color: 'black'}}
-        onPress={() => {
-          dispatch({type: 'DECREMENT'});
-        }}>
-        Change count{' '}
-      </Text>
-    </View>
+    <StyleProvider>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{color: 'black'}}>{state.count}</Text>
+        <Text
+          style={{padding: 10, borderWidth: 1, color: 'black'}}
+          onPress={() => {
+            dispatch({type: 'DECREMENT'});
+          }}>
+          Change count{' '}
+        </Text>
+        <Comp />
+      </View>
+    </StyleProvider>
 
     // <View>
     //   <Text
