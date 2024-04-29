@@ -5,8 +5,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import Home from './src/screens/Home';
 import Setting from './src/screens/Setting';
 import Products from './src/screens/Products';
+import Notes from './src/redux/Notes';
+import Selection from './src/screens/Selection';
 
 export type RootStackParamsList = {
+  Notes: undefined;
   Products: undefined;
   Home: undefined;
 
@@ -20,6 +23,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Selection" component={Selection} />
         <Stack.Screen name="Products" component={Products} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Setting" component={Setting} />
