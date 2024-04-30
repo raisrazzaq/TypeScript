@@ -7,6 +7,7 @@ import Setting from './src/screens/Setting';
 import Products from './src/screens/Products';
 import Notes from './src/redux/Notes';
 import Selection from './src/screens/Selection';
+import Components1 from './src/screens/Components1';
 
 export type RootStackParamsList = {
   Notes: undefined;
@@ -23,7 +24,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Selection" component={Selection} />
+        <Stack.Screen name="Components1" component={Components1} />
         <Stack.Screen name="Products" component={Products} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Setting" component={Setting} />
